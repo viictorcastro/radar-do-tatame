@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Teko } from "next/font/google";
 import Link from "next/link";
 import { ThemeProvider } from "next-themes";
 import ThemeToggle from "@/components/ThemeToggle";
+import FeedbackWidget from "@/components/FeedbackWidget";
 import "./globals.css";
 import "leaflet/dist/leaflet.css";
 
@@ -57,6 +58,7 @@ export default function RootLayout({
                     <Link href="/admin" className="relative py-1 transition hover:text-white after:absolute after:inset-x-0 after:-bottom-0.5 after:h-0.5 after:scale-x-0 after:bg-belt-blue after:transition-transform hover:after:scale-x-100">
                       Admin
                     </Link>
+                    <FeedbackWidget />
                   </nav>
                   <ThemeToggle />
                 </div>

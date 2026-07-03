@@ -31,3 +31,10 @@ model Championship {
   @@index([state, city])
   @@index([date])
 }
+
+model Feedback {
+  id        String   @id @default(cuid())
+  message   String
+  contact   String?
+  createdAt DateTime @default(now())
+}

@@ -8,8 +8,9 @@ export async function proxy(request: NextRequest) {
 
   const isAdminPage = pathname.startsWith("/admin") && pathname !== "/admin/login";
   const isProtectedApi =
-    (pathname.startsWith("/api/championships") || pathname.startsWith("/api/federations")) &&
-    PROTECTED_API_METHODS.has(request.method);
+    ((pathname.startsWith("/api/championships") || pathname.startsWith("/api/federations")) &&
+      PROTECTED_API_METHODS.has(request.method)) ||
+    (pathname.startsWith("/api/feedback") && request.method !== "POST");
 
   if (!isAdminPage && !isProtectedApi) {
     return NextResponse.next();
@@ -32,5 +33,10 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/admin/:path*", "/api/championships/:path*", "/api/federations/:path*"],
+  matcher: [
+    "/admin/:path*",
+    "/api/championships/:path*",
+    "/api/federations/:path*",
+    "/api/feedback/:path*",
+  ],
 };

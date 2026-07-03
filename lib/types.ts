@@ -17,3 +17,10 @@ export type Championship = {
   longitude: number;
   sourceUrl: string | null;
 };
+
+export type Feedback = {
+  id: string;
+  message: string;
+  contact: string | null;
+  createdAt: string;
+};

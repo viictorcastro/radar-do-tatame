@@ -4,6 +4,7 @@ import { formatDistance } from "@/lib/geo";
 import { toCalendarDate, brasiliaToday } from "@/lib/date";
 import FavoriteButton from "./FavoriteButton";
 import StateFlag from "./StateFlag";
+import { getFederationBadge } from "@/lib/federation-badge";
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 
@@ -29,6 +30,7 @@ export default function ChampionshipCard({
   const hasLink = Boolean(championship.sourceUrl || championship.federation.website);
   const days = daysUntil(date);
   const isSoon = days >= 0 && days < 10;
+  const federationBadge = getFederationBadge(championship.federation.name);
 
   return (
     <div className="group relative flex gap-4 overflow-hidden rounded-xl border border-neutral-200 bg-white p-4 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-belt-blue/10 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:shadow-belt-blue/20">
@@ -49,7 +51,14 @@ export default function ChampionshipCard({
       <div className="min-w-0 flex-1">
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0">
-            <p className="font-semibold text-neutral-900 dark:text-neutral-50">{championship.name}</p>
+            <p className="flex items-center gap-1.5 font-semibold text-neutral-900 dark:text-neutral-50">
+              <span
+                className={`shrink-0 rounded px-1.5 py-0.5 text-[0.6rem] font-bold uppercase tracking-wide text-white ${federationBadge.className}`}
+              >
+                {federationBadge.label}
+              </span>
+              <span className="min-w-0">{championship.name}</span>
+            </p>
             <p className="text-sm text-neutral-500 dark:text-neutral-400">{championship.federation.name}</p>
           </div>
         </div>
@@ -64,6 +73,16 @@ export default function ChampionshipCard({
               a {formatDistance(distanceKm)} de você
             </span>
           )}
+
+          {hasLink && (
+            <Link
+              href={`/go/${championship.id}`}
+              target="_blank"
+              className="ml-auto shrink-0 text-sm font-medium text-belt-blue transition group-hover:translate-x-0.5 hover:underline dark:text-blue-400"
+            >
+              Ver detalhes / inscrição →
+            </Link>
+          )}
         </div>
 
         {isSoon && (
@@ -71,16 +90,6 @@ export default function ChampionshipCard({
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-white" />
             {countdownLabel(days)}
           </div>
-        )}
-
-        {hasLink && (
-          <Link
-            href={`/go/${championship.id}`}
-            target="_blank"
-            className="mt-3 inline-block text-sm font-medium text-belt-blue transition group-hover:translate-x-0.5 hover:underline dark:text-blue-400"
-          >
-            Ver detalhes / inscrição →
-          </Link>
         )}
       </div>
     </div>
