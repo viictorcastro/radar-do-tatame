@@ -44,7 +44,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <header className="sticky top-0 z-30">
             <div className="bg-belt-black/90 text-white backdrop-blur-md">
-              <div className="mx-auto max-w-5xl px-4 py-3 sm:py-4 flex items-center justify-between gap-2">
+              <div className="mx-auto max-w-7xl px-4 py-3 sm:py-4 flex items-center justify-between gap-2">
                 <Link
                   href="/"
                   className="flex shrink-0 items-center gap-1.5 font-display text-2xl sm:text-4xl font-bold uppercase tracking-wide leading-none transition hover:opacity-80"
@@ -66,7 +66,7 @@ export default function RootLayout({
             </div>
             <div className="belt-stripe" />
           </header>
-          <main className="flex-1 mx-auto w-full max-w-5xl px-4 py-6">{children}</main>
+          <main className="flex-1 mx-auto w-full max-w-7xl px-4 py-6">{children}</main>
           <SiteFooter />
           <FeedbackWidget />
         </ThemeProvider>

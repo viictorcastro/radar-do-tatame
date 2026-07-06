@@ -7,7 +7,7 @@ export default function SiteFooter() {
 
   return (
     <footer className="mt-10 bg-belt-black text-white">
-      <div className="mx-auto flex max-w-5xl flex-col items-center gap-4 px-4 py-8 text-center sm:flex-row sm:justify-between sm:text-left">
+      <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 px-4 py-8 text-center sm:flex-row sm:justify-between sm:text-left">
         <p className="font-display text-xl font-bold uppercase tracking-wide leading-none">
           Radar · Tatame
         </p>
