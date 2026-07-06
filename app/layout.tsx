@@ -58,7 +58,6 @@ export default function RootLayout({
                     <Link href="/admin" className="relative py-1 transition hover:text-white after:absolute after:inset-x-0 after:-bottom-0.5 after:h-0.5 after:scale-x-0 after:bg-belt-blue after:transition-transform hover:after:scale-x-100">
                       Admin
                     </Link>
-                    <FeedbackWidget />
                   </nav>
                   <ThemeToggle />
                 </div>
@@ -67,6 +66,7 @@ export default function RootLayout({
             <div className="belt-stripe" />
           </header>
           <main className="flex-1 mx-auto w-full max-w-5xl px-4 py-6">{children}</main>
+          <FeedbackWidget />
         </ThemeProvider>
       </body>
     </html>

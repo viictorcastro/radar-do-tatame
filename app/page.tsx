@@ -7,6 +7,7 @@ import ChampionshipFilters, {
   type ViewMode,
 } from "@/components/ChampionshipFilters";
 import ChampionshipList from "@/components/ChampionshipList";
+import RadarHero from "@/components/RadarHero";
 import { distanceKm } from "@/lib/geo";
 import { FAVORITES_EVENT, getFavoriteIds } from "@/lib/favorites";
 import type { Championship } from "@/lib/types";
@@ -200,6 +201,10 @@ export default function HomePage() {
           </span>
         )}
       </div>
+
+      {!loading && tab === "proximos" && championships.length > 0 && (
+        <RadarHero championships={championships} />
+      )}
 
       <div className="relative mb-6 flex w-fit rounded-full bg-neutral-100 p-1 text-sm font-medium dark:bg-neutral-800">
         <div
