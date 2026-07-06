@@ -183,7 +183,7 @@ export default function HomePage() {
 
   return (
     <div className="lg:grid lg:grid-cols-[220px_1fr_220px] lg:items-start lg:gap-6">
-      <aside className="mb-6 lg:sticky lg:top-20 lg:order-1 lg:mb-0">
+      <aside className="mb-6 flex flex-col gap-4 lg:sticky lg:top-20 lg:order-1 lg:mb-0">
         <ChampionshipFilters
           states={states}
           cities={cities}
@@ -202,6 +202,7 @@ export default function HomePage() {
           onlyFavorites={onlyFavorites}
           onOnlyFavoritesChange={setOnlyFavorites}
         />
+        <SponsorPlaceholder />
       </aside>
 
       <div className="lg:order-2">

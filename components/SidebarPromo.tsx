@@ -6,7 +6,7 @@ export function SponsorPlaceholder() {
   }
 
   return (
-    <div className="flex min-h-[260px] flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-neutral-300 bg-white p-6 text-center dark:border-neutral-700 dark:bg-neutral-900">
+    <div className="flex min-h-[520px] flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-neutral-300 bg-white p-6 text-center dark:border-neutral-700 dark:bg-neutral-900">
       <p className="text-[0.65rem] font-semibold uppercase tracking-wider text-neutral-400 dark:text-neutral-500">
         Espaço patrocinado
       </p>

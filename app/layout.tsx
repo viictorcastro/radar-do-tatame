@@ -44,10 +44,10 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <header className="sticky top-0 z-30">
             <div className="bg-belt-black/90 text-white backdrop-blur-md">
-              <div className="mx-auto max-w-7xl px-4 py-3 sm:py-4 flex items-center justify-between gap-2">
+              <div className="mx-auto max-w-7xl px-4 py-4 sm:py-5 flex items-center justify-between gap-2">
                 <Link
                   href="/"
-                  className="flex shrink-0 items-center gap-1.5 font-display text-2xl sm:text-4xl font-bold uppercase tracking-wide leading-none transition hover:opacity-80"
+                  className="flex shrink-0 items-center gap-1.5 text-3xl sm:text-5xl font-bold uppercase tracking-wide leading-none transition hover:opacity-80"
                 >
                   🥋 Radar do Tatame
                 </Link>
