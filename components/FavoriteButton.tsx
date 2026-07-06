@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import KimonoIcon from "./KimonoIcon";
+import HeartIcon from "./HeartIcon";
 import { FAVORITES_EVENT, isFavoriteId, toggleFavoriteId } from "@/lib/favorites";
 
 export default function FavoriteButton({ championshipId }: { championshipId: string }) {
@@ -36,7 +36,7 @@ export default function FavoriteButton({ championshipId }: { championshipId: str
         favorite ? "" : "text-neutral-300 hover:text-belt-amber dark:text-neutral-600"
       }`}
     >
-      <KimonoIcon filled={favorite} className="h-6 w-6" />
+      <HeartIcon filled={favorite} className="h-6 w-6" />
     </button>
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { nomeEstado } from "@/lib/brasil";
-import KimonoIcon from "./KimonoIcon";
+import HeartIcon from "./HeartIcon";
 import MultiSelectChips from "./MultiSelectChips";
 
 export type SortMode = "data" | "proximidade";
@@ -95,7 +95,7 @@ export default function ChampionshipFilters({
               : "border-neutral-300 bg-white text-neutral-600 hover:bg-neutral-50 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-700"
           }`}
         >
-          <KimonoIcon filled={onlyFavorites} className="h-4 w-4" />
+          <HeartIcon filled={onlyFavorites} className="h-4 w-4" />
           Favoritos
         </button>
 

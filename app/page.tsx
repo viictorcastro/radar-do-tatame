@@ -8,6 +8,8 @@ import ChampionshipFilters, {
 } from "@/components/ChampionshipFilters";
 import ChampionshipList from "@/components/ChampionshipList";
 import RadarHero from "@/components/RadarHero";
+import QuickFilterTabs from "@/components/QuickFilterTabs";
+import PartnerFederations from "@/components/PartnerFederations";
 import { SponsorPlaceholder, WhatsAppPlaceholder } from "@/components/SidebarPromo";
 import { distanceKm } from "@/lib/geo";
 import { FAVORITES_EVENT, getFavoriteIds } from "@/lib/favorites";
@@ -40,6 +42,7 @@ export default function HomePage() {
   );
   const [onlyFavorites, setOnlyFavorites] = useState(false);
   const [favoriteIds, setFavoriteIds] = useState<string[]>([]);
+  const [showMoreFilters, setShowMoreFilters] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -182,36 +185,39 @@ export default function HomePage() {
   }
 
   return (
-    <div className="lg:grid lg:grid-cols-[220px_1fr] lg:items-start lg:gap-6">
-      <aside className="mb-6 flex flex-col gap-4 lg:sticky lg:top-20 lg:mb-0">
+    <div className="lg:grid lg:grid-cols-[1fr_220px] lg:items-start lg:gap-6">
+      <aside className="mb-6 flex flex-col gap-4 lg:sticky lg:top-20 lg:mb-0 lg:order-2">
+        <PartnerFederations federations={federations} />
         <SponsorPlaceholder />
         <WhatsAppPlaceholder />
       </aside>
 
-      <div>
-      <div className="mb-6 flex flex-wrap items-end justify-between gap-2">
+      <div className="lg:order-1">
+      <div className="mb-6 flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
         <div>
           <h1 className="text-3xl font-bold tracking-tight text-neutral-900 dark:text-neutral-50">
-            Campeonatos de{" "}
+            Todo campeonato de jiu-jitsu, no{" "}
             <span className="bg-gradient-to-r from-belt-blue to-belt-purple bg-clip-text text-transparent">
-              Jiu-Jitsu
+              seu radar.
             </span>
           </h1>
           <p className="text-neutral-500 dark:text-neutral-400">
             Todos os campeonatos das federações, em um só calendário.
           </p>
+          {!loading && (
+            <span className="mt-2 inline-block rounded-full bg-belt-blue/10 px-3 py-1 text-sm font-semibold text-belt-blue dark:bg-blue-400/10 dark:text-blue-300">
+              {items.length} campeonato{items.length === 1 ? "" : "s"} encontrado
+              {items.length === 1 ? "" : "s"}
+            </span>
+          )}
         </div>
-        {!loading && (
-          <span className="rounded-full bg-belt-blue/10 px-3 py-1 text-sm font-semibold text-belt-blue dark:bg-blue-400/10 dark:text-blue-300">
-            {items.length} campeonato{items.length === 1 ? "" : "s"} encontrado
-            {items.length === 1 ? "" : "s"}
-          </span>
+
+        {!loading && tab === "proximos" && championships.length > 0 && (
+          <div className="lg:w-[380px] lg:shrink-0">
+            <RadarHero championships={championships} />
+          </div>
         )}
       </div>
-
-      {!loading && tab === "proximos" && championships.length > 0 && (
-        <RadarHero championships={championships} />
-      )}
 
       <div className="relative mb-6 flex w-fit rounded-full bg-neutral-100 p-1 text-sm font-medium dark:bg-neutral-800">
         <div
@@ -239,24 +245,46 @@ export default function HomePage() {
         </button>
       </div>
 
-      <ChampionshipFilters
-        states={states}
-        cities={cities}
-        federations={federations}
-        selectedStates={selectedStates}
-        selectedCities={selectedCities}
-        selectedFederations={selectedFederations}
-        onStatesChange={handleStatesChange}
-        onCitiesChange={setSelectedCities}
-        onFederationsChange={setSelectedFederations}
-        sort={sort}
-        onSortChange={setSort}
-        view={view}
-        onViewChange={setView}
-        geoStatus={geoStatus}
-        onlyFavorites={onlyFavorites}
-        onOnlyFavoritesChange={setOnlyFavorites}
-      />
+      <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
+        <QuickFilterTabs
+          federations={federations}
+          championships={championships}
+          selectedFederations={selectedFederations}
+          onFederationsChange={setSelectedFederations}
+          sort={sort}
+          onSortChange={setSort}
+          geoStatus={geoStatus}
+        />
+        <button
+          type="button"
+          onClick={() => setShowMoreFilters((prev) => !prev)}
+          aria-expanded={showMoreFilters}
+          className="shrink-0 text-sm font-medium text-belt-blue hover:underline dark:text-blue-400"
+        >
+          {showMoreFilters ? "Menos filtros" : "Mais filtros"}
+        </button>
+      </div>
+
+      {showMoreFilters && (
+        <ChampionshipFilters
+          states={states}
+          cities={cities}
+          federations={federations}
+          selectedStates={selectedStates}
+          selectedCities={selectedCities}
+          selectedFederations={selectedFederations}
+          onStatesChange={handleStatesChange}
+          onCitiesChange={setSelectedCities}
+          onFederationsChange={setSelectedFederations}
+          sort={sort}
+          onSortChange={setSort}
+          view={view}
+          onViewChange={setView}
+          geoStatus={geoStatus}
+          onlyFavorites={onlyFavorites}
+          onOnlyFavoritesChange={setOnlyFavorites}
+        />
+      )}
 
       {loading ? (
         <p className="text-neutral-500 dark:text-neutral-400">Carregando campeonatos…</p>

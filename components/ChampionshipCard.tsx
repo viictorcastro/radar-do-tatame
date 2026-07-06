@@ -13,10 +13,11 @@ function daysUntil(date: Date): number {
   return Math.round((date.getTime() - today.getTime()) / DAY_MS);
 }
 
-function countdownLabel(days: number): string {
+function relativeLabel(days: number): string | null {
   if (days <= 0) return "HOJE";
-  if (days === 1) return "falta 1 dia para a competição";
-  return `faltam ${days} dias para a competição`;
+  if (days <= 7) return "ESSA SEMANA";
+  if (days <= 30) return "ESSE MÊS";
+  return null;
 }
 
 export default function ChampionshipCard({
@@ -29,22 +30,23 @@ export default function ChampionshipCard({
   const date = toCalendarDate(championship.date);
   const hasLink = Boolean(championship.sourceUrl || championship.federation.website);
   const days = daysUntil(date);
-  const isSoon = days >= 0 && days < 10;
+  const label = days >= 0 ? relativeLabel(days) : null;
   const federationBadge = getFederationBadge(championship.federation.name);
 
   return (
-    <div className="group relative flex gap-4 overflow-hidden rounded-xl border border-neutral-200 bg-white p-4 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-belt-blue/10 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:shadow-belt-blue/20">
-      <div className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-belt-blue to-belt-purple" />
+    <div className="group relative flex gap-4 border-b border-neutral-100 py-4 pl-3 dark:border-neutral-800">
+      <div
+        className="absolute inset-y-1 left-0 w-1 rounded-full"
+        style={{ backgroundColor: federationBadge.hex }}
+      />
 
-      <div className="flex shrink-0 flex-col items-center gap-1 pl-2">
-        <div className="rounded-2xl bg-gradient-to-br from-belt-blue to-belt-blue-dark px-3 py-2 text-center text-white shadow-sm">
-          <p className="text-[0.65rem] font-semibold uppercase leading-none tracking-wide opacity-90">
-            {date.toLocaleDateString("pt-BR", { month: "short" }).replace(".", "")}
-          </p>
-          <p className="text-xl font-bold leading-none mt-1">
-            {date.toLocaleDateString("pt-BR", { day: "2-digit" })}
-          </p>
-        </div>
+      <div className="flex shrink-0 flex-col items-center gap-1 pt-0.5">
+        <p className="text-[0.65rem] font-semibold uppercase leading-none tracking-wide text-neutral-400 dark:text-neutral-500">
+          {date.toLocaleDateString("pt-BR", { month: "short" }).replace(".", "")}
+        </p>
+        <p className="text-xl font-bold leading-none text-neutral-900 dark:text-neutral-50">
+          {date.toLocaleDateString("pt-BR", { day: "2-digit" })}
+        </p>
         <FavoriteButton championshipId={championship.id} />
       </div>
 
@@ -85,10 +87,10 @@ export default function ChampionshipCard({
           )}
         </div>
 
-        {isSoon && (
-          <div className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-belt-amber to-red-500 px-3 py-1 text-xs font-semibold text-white">
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-white" />
-            {countdownLabel(days)}
+        {label && (
+          <div className="mt-2 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-belt-amber dark:text-amber-400">
+            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-belt-amber dark:bg-amber-400" />
+            {label}
           </div>
         )}
       </div>

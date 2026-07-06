@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ThemeProvider } from "next-themes";
 import ThemeToggle from "@/components/ThemeToggle";
 import FeedbackWidget from "@/components/FeedbackWidget";
+import SiteFooter from "@/components/SiteFooter";
 import "./globals.css";
 import "leaflet/dist/leaflet.css";
 
@@ -66,6 +67,7 @@ export default function RootLayout({
             <div className="belt-stripe" />
           </header>
           <main className="flex-1 mx-auto w-full max-w-5xl px-4 py-6">{children}</main>
+          <SiteFooter />
           <FeedbackWidget />
         </ThemeProvider>
       </body>
