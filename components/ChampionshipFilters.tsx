@@ -45,8 +45,8 @@ export default function ChampionshipFilters({
   onOnlyFavoritesChange: (value: boolean) => void;
 }) {
   return (
-    <div className="sticky top-14 z-10 mb-6 flex flex-col gap-4 rounded-xl border border-neutral-200 bg-white/90 p-4 shadow-sm backdrop-blur dark:border-neutral-800 dark:bg-neutral-900/90">
-      <div className="flex flex-wrap gap-6">
+    <div className="flex flex-col gap-4 rounded-xl border border-neutral-200 bg-white p-4 shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
+      <div className="flex flex-col gap-4">
         <MultiSelectChips
           label="Federação"
           options={federations.map((f) => ({ value: f.id, label: f.name }))}
@@ -69,7 +69,7 @@ export default function ChampionshipFilters({
         />
       </div>
 
-      <div className="flex flex-wrap items-end gap-3 border-t border-neutral-100 pt-3 dark:border-neutral-800">
+      <div className="flex flex-col gap-3 border-t border-neutral-100 pt-3 dark:border-neutral-800">
         <div className="flex flex-col gap-1">
           <label className="text-xs font-medium text-neutral-500 dark:text-neutral-400" htmlFor="filter-sort">
             Ordenar por
@@ -78,7 +78,7 @@ export default function ChampionshipFilters({
             id="filter-sort"
             value={sort}
             onChange={(e) => onSortChange(e.target.value as SortMode)}
-            className="input min-w-[10rem]"
+            className="input w-full"
           >
             <option value="data">Data (mais próximos)</option>
             <option value="proximidade">Proximidade</option>
@@ -89,7 +89,7 @@ export default function ChampionshipFilters({
           type="button"
           onClick={() => onOnlyFavoritesChange(!onlyFavorites)}
           aria-pressed={onlyFavorites}
-          className={`ml-auto flex items-center gap-1.5 rounded-full border px-3.5 py-2 text-sm font-medium transition ${
+          className={`flex w-full items-center justify-center gap-1.5 rounded-full border px-3.5 py-2 text-sm font-medium transition ${
             onlyFavorites
               ? "border-belt-amber bg-belt-amber/10 text-belt-amber"
               : "border-neutral-300 bg-white text-neutral-600 hover:bg-neutral-50 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-700"
@@ -99,7 +99,7 @@ export default function ChampionshipFilters({
           Favoritos
         </button>
 
-        <div className="relative flex rounded-full bg-neutral-100 p-1 text-sm font-medium dark:bg-neutral-800">
+        <div className="relative flex w-full rounded-full bg-neutral-100 p-1 text-sm font-medium dark:bg-neutral-800">
           <div
             className={`absolute inset-y-1 w-[calc(50%-0.25rem)] rounded-full bg-belt-blue shadow-sm transition-transform duration-200 ease-out ${
               view === "mapa" ? "translate-x-[calc(100%+0.5rem)]" : "translate-x-0"
@@ -108,7 +108,7 @@ export default function ChampionshipFilters({
           <button
             type="button"
             onClick={() => onViewChange("lista")}
-            className={`relative z-10 rounded-full px-4 py-1.5 transition-colors ${
+            className={`relative z-10 flex-1 rounded-full px-4 py-1.5 transition-colors ${
               view === "lista" ? "text-white" : "text-neutral-600 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white"
             }`}
           >
@@ -117,7 +117,7 @@ export default function ChampionshipFilters({
           <button
             type="button"
             onClick={() => onViewChange("mapa")}
-            className={`relative z-10 rounded-full px-4 py-1.5 transition-colors ${
+            className={`relative z-10 flex-1 rounded-full px-4 py-1.5 transition-colors ${
               view === "mapa" ? "text-white" : "text-neutral-600 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white"
             }`}
           >

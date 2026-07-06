@@ -6,14 +6,14 @@ export function SponsorPlaceholder() {
   }
 
   return (
-    <div className="rounded-xl border border-dashed border-neutral-300 bg-white p-4 text-center dark:border-neutral-700 dark:bg-neutral-900">
+    <div className="flex min-h-[260px] flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-neutral-300 bg-white p-6 text-center dark:border-neutral-700 dark:bg-neutral-900">
       <p className="text-[0.65rem] font-semibold uppercase tracking-wider text-neutral-400 dark:text-neutral-500">
         Espaço patrocinado
       </p>
       <button
         type="button"
         onClick={handleClick}
-        className="mt-2 rounded-full border border-neutral-300 px-3 py-1.5 text-xs font-medium text-neutral-600 transition hover:bg-neutral-50 dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-800"
+        className="mt-2 rounded-full border border-neutral-300 px-4 py-2 text-xs font-medium text-neutral-600 transition hover:bg-neutral-50 dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-800"
       >
         Fale conosco
       </button>
