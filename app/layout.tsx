@@ -53,10 +53,10 @@ export default function RootLayout({
                 </Link>
                 <div className="flex items-center gap-2 sm:gap-4">
                   <nav className="flex gap-3 sm:gap-5 text-xs sm:text-sm font-medium text-neutral-300">
-                    <Link href="/" className="relative py-1 transition hover:text-white after:absolute after:inset-x-0 after:-bottom-0.5 after:h-0.5 after:scale-x-0 after:bg-belt-blue after:transition-transform hover:after:scale-x-100">
+                    <Link href="/" className="relative py-1 transition hover:text-white after:absolute after:inset-x-0 after:-bottom-0.5 after:h-0.5 after:scale-x-0 after:bg-green-600 after:transition-transform hover:after:scale-x-100">
                       Campeonatos
                     </Link>
-                    <Link href="/admin" className="relative py-1 transition hover:text-white after:absolute after:inset-x-0 after:-bottom-0.5 after:h-0.5 after:scale-x-0 after:bg-belt-blue after:transition-transform hover:after:scale-x-100">
+                    <Link href="/admin" className="relative py-1 transition hover:text-white after:absolute after:inset-x-0 after:-bottom-0.5 after:h-0.5 after:scale-x-0 after:bg-green-600 after:transition-transform hover:after:scale-x-100">
                       Admin
                     </Link>
                   </nav>

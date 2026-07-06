@@ -75,7 +75,7 @@ export default function MultiSelectChips({
                 onChange([]);
               }
             }}
-            className="text-xs font-medium text-belt-blue hover:underline dark:text-blue-400"
+            className="text-xs font-medium text-green-700 hover:underline dark:text-green-400"
           >
             limpar
           </span>
@@ -98,7 +98,7 @@ export default function MultiSelectChips({
                     disabled
                       ? "cursor-not-allowed opacity-50"
                       : isSelected
-                        ? "border-belt-blue bg-belt-blue/10 text-belt-blue dark:border-blue-400 dark:bg-blue-400/10 dark:text-blue-300"
+                        ? "border-green-600 bg-green-600/10 text-green-700 dark:border-green-400 dark:bg-green-400/10 dark:text-green-300"
                         : "border-neutral-300 bg-white text-neutral-600 hover:bg-neutral-50 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-700"
                   }`}
                 >
@@ -107,7 +107,7 @@ export default function MultiSelectChips({
                     checked={isSelected}
                     disabled={disabled}
                     onChange={() => toggle(option.value)}
-                    className="h-3 w-3 accent-belt-blue"
+                    className="h-3 w-3 accent-green-600"
                   />
                   {option.label}
                 </label>

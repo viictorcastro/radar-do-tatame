@@ -68,7 +68,7 @@ export default function FeedbackPage() {
 
       <Link
         href="/admin"
-        className="mt-6 inline-block text-sm font-medium text-belt-blue hover:underline dark:text-blue-400"
+        className="mt-6 inline-block text-sm font-medium text-green-700 hover:underline dark:text-green-400"
       >
         ← Voltar para o painel
       </Link>

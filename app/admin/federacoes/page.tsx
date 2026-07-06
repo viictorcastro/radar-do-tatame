@@ -69,7 +69,7 @@ export default function FederacoesPage() {
                   type="button"
                   onClick={() => handleSave(f.id)}
                   disabled={savingId === f.id}
-                  className="rounded-full bg-gradient-to-r from-belt-blue to-belt-blue-dark px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:scale-[1.02] disabled:opacity-50 disabled:hover:scale-100"
+                  className="rounded-full bg-gradient-to-r from-green-600 to-green-700 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:scale-[1.02] disabled:opacity-50 disabled:hover:scale-100"
                 >
                   {savingId === f.id ? "Salvando…" : "Salvar"}
                 </button>
@@ -79,7 +79,7 @@ export default function FederacoesPage() {
         </div>
       )}
 
-      <Link href="/admin" className="mt-6 inline-block text-sm font-medium text-belt-blue hover:underline dark:text-blue-400">
+      <Link href="/admin" className="mt-6 inline-block text-sm font-medium text-green-700 hover:underline dark:text-green-400">
         ← Voltar para o painel
       </Link>
     </div>

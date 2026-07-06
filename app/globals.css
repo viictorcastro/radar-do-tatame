@@ -15,6 +15,10 @@
   --color-belt-brown: #92400e;
   --color-belt-amber: #f0993f;
   --color-belt-black: #171512;
+
+  /* Verde de destaque (radar, WhatsApp) usado como cor de marca da interface */
+  --color-brand-green: #16a34a;
+  --color-brand-green-dark: #15803d;
 }
 
 :root {
@@ -39,7 +43,7 @@ body {
 }
 
 .input:focus {
-  outline: 2px solid var(--color-belt-blue);
+  outline: 2px solid var(--color-brand-green);
   outline-offset: 1px;
 }
 
@@ -60,7 +64,7 @@ body {
 }
 
 .dark .leaflet-container a {
-  color: var(--color-belt-blue);
+  color: var(--color-brand-green);
 }
 
 @keyframes radar-sweep-spin {

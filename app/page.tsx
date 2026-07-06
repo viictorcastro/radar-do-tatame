@@ -215,7 +215,7 @@ export default function HomePage() {
           <div>
             <h1 className="text-3xl font-bold tracking-tight text-neutral-900 dark:text-neutral-50">
               Todo campeonato de jiu-jitsu, no{" "}
-              <span className="bg-gradient-to-r from-belt-blue to-belt-purple bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-green-600 to-emerald-500 bg-clip-text text-transparent">
                 seu radar.
               </span>
             </h1>
@@ -223,7 +223,7 @@ export default function HomePage() {
               Todos os campeonatos das federações, em um só calendário.
             </p>
             {!loading && (
-              <span className="mt-2 inline-block rounded-full bg-belt-blue/10 px-3 py-1 text-sm font-semibold text-belt-blue dark:bg-blue-400/10 dark:text-blue-300">
+              <span className="mt-2 inline-block rounded-full bg-green-600/10 px-3 py-1 text-sm font-semibold text-green-700 dark:bg-green-400/10 dark:text-green-300">
                 {items.length} campeonato{items.length === 1 ? "" : "s"} encontrado
                 {items.length === 1 ? "" : "s"}
               </span>
@@ -234,7 +234,7 @@ export default function HomePage() {
 
       <div className="relative mb-6 flex w-fit rounded-full bg-neutral-100 p-1 text-sm font-medium dark:bg-neutral-800">
         <div
-          className={`absolute inset-y-1 w-[calc(50%-0.25rem)] rounded-full bg-belt-blue shadow-sm transition-transform duration-200 ease-out ${
+          className={`absolute inset-y-1 w-[calc(50%-0.25rem)] rounded-full bg-green-600 shadow-sm transition-transform duration-200 ease-out ${
             tab === "realizados" ? "translate-x-[calc(100%+0.5rem)]" : "translate-x-0"
           }`}
         />

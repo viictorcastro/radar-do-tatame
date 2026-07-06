@@ -70,7 +70,7 @@ export default function FeedbackWidget() {
         onClick={() => setOpen(true)}
         title="Envie-nos uma mensagem"
         aria-label="Envie-nos uma mensagem"
-        className="fixed bottom-5 right-5 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-belt-blue to-belt-purple text-white shadow-lg transition hover:scale-110 hover:shadow-xl"
+        className="fixed bottom-5 right-5 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-green-600 to-emerald-500 text-white shadow-lg transition hover:scale-110 hover:shadow-xl"
       >
         <svg
           viewBox="0 0 24 24"
@@ -106,7 +106,7 @@ export default function FeedbackWidget() {
                 <button
                   type="button"
                   onClick={handleClose}
-                  className="mt-2 rounded-full bg-gradient-to-r from-belt-blue to-belt-blue-dark px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:scale-[1.02]"
+                  className="mt-2 rounded-full bg-gradient-to-r from-green-600 to-green-700 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:scale-[1.02]"
                 >
                   Fechar
                 </button>
@@ -159,7 +159,7 @@ export default function FeedbackWidget() {
                 <button
                   type="submit"
                   disabled={submitting || !message.trim()}
-                  className="rounded-full bg-gradient-to-r from-belt-blue to-belt-blue-dark px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:scale-[1.02] disabled:opacity-50 disabled:hover:scale-100"
+                  className="rounded-full bg-gradient-to-r from-green-600 to-green-700 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:scale-[1.02] disabled:opacity-50 disabled:hover:scale-100"
                 >
                   {submitting ? "Enviando…" : "Enviar"}
                 </button>

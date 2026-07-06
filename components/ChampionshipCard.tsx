@@ -80,7 +80,7 @@ export default function ChampionshipCard({
             <Link
               href={`/go/${championship.id}`}
               target="_blank"
-              className="ml-auto shrink-0 text-sm font-medium text-belt-blue transition group-hover:translate-x-0.5 hover:underline dark:text-blue-400"
+              className="ml-auto shrink-0 text-sm font-medium text-green-700 transition group-hover:translate-x-0.5 hover:underline dark:text-green-400"
             >
               Ver detalhes / inscrição →
             </Link>

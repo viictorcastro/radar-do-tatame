@@ -64,7 +64,7 @@ export default function AdminPage() {
           </Link>
           <Link
             href="/admin/novo"
-            className="rounded-full bg-gradient-to-r from-belt-blue to-belt-blue-dark px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:scale-105"
+            className="rounded-full bg-gradient-to-r from-green-600 to-green-700 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:scale-105"
           >
             + Novo campeonato
           </Link>
@@ -104,7 +104,7 @@ export default function AdminPage() {
                   <td className="px-4 py-3 text-right whitespace-nowrap">
                     <Link
                       href={`/admin/${c.id}/editar`}
-                      className="mr-3 font-medium text-belt-blue hover:underline dark:text-blue-400"
+                      className="mr-3 font-medium text-green-700 hover:underline dark:text-green-400"
                     >
                       Editar
                     </Link>

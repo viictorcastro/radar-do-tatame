@@ -72,7 +72,7 @@ export default function ImportarPage() {
         <button
           type="submit"
           disabled={!file || submitting}
-          className="rounded-full bg-gradient-to-r from-belt-blue to-belt-blue-dark px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:scale-[1.02] disabled:opacity-50 disabled:hover:scale-100"
+          className="rounded-full bg-gradient-to-r from-green-600 to-green-700 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:scale-[1.02] disabled:opacity-50 disabled:hover:scale-100"
         >
           {submitting ? "Importando…" : "Importar"}
         </button>
@@ -110,7 +110,7 @@ export default function ImportarPage() {
             </div>
           )}
 
-          <Link href="/admin" className="text-sm font-medium text-belt-blue hover:underline dark:text-blue-400">
+          <Link href="/admin" className="text-sm font-medium text-green-700 hover:underline dark:text-green-400">
             ← Voltar para o painel
           </Link>
         </div>

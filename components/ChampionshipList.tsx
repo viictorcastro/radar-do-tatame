@@ -49,7 +49,7 @@ export default function ChampionshipList({
       {Array.from(groups.entries()).map(([month, monthItems]) => (
         <div key={month}>
           <h2 className="mb-2 flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
-            <span className="h-1.5 w-1.5 rounded-full bg-belt-blue" />
+            <span className="h-1.5 w-1.5 rounded-full bg-green-600" />
             {month}
           </h2>
           <div className="flex flex-col gap-3">

@@ -69,7 +69,7 @@ export default function ChampionshipMap({
   const isDark = mounted && resolvedTheme === "dark";
 
   return (
-    <div className="h-[520px] w-full overflow-hidden rounded-xl border border-neutral-200 shadow-lg shadow-belt-blue/10 dark:border-neutral-800">
+    <div className="h-[520px] w-full overflow-hidden rounded-xl border border-neutral-200 shadow-lg shadow-green-600/10 dark:border-neutral-800">
       <MapContainer
         center={BRAZIL_CENTER}
         zoom={4}
@@ -101,7 +101,7 @@ export default function ChampionshipMap({
                   <Link
                     href={`/go/${c.id}`}
                     target="_blank"
-                    className="text-belt-blue hover:underline dark:text-blue-400"
+                    className="text-green-700 hover:underline dark:text-green-400"
                   >
                     Ver detalhes
                   </Link>

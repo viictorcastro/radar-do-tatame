@@ -101,7 +101,7 @@ export default function ChampionshipFilters({
 
         <div className="relative flex w-full rounded-full bg-neutral-100 p-1 text-sm font-medium dark:bg-neutral-800">
           <div
-            className={`absolute inset-y-1 w-[calc(50%-0.25rem)] rounded-full bg-belt-blue shadow-sm transition-transform duration-200 ease-out ${
+            className={`absolute inset-y-1 w-[calc(50%-0.25rem)] rounded-full bg-green-600 shadow-sm transition-transform duration-200 ease-out ${
               view === "mapa" ? "translate-x-[calc(100%+0.5rem)]" : "translate-x-0"
             }`}
           />
