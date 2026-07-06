@@ -11,6 +11,14 @@ export default function FeedbackWidget() {
   const [sent, setSent] = useState(false);
 
   useEffect(() => {
+    function handleOpenRequest() {
+      setOpen(true);
+    }
+    window.addEventListener("open-feedback", handleOpenRequest);
+    return () => window.removeEventListener("open-feedback", handleOpenRequest);
+  }, []);
+
+  useEffect(() => {
     if (!open) return;
 
     function handleKey(e: KeyboardEvent) {

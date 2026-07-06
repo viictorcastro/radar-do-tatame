@@ -8,6 +8,7 @@ import ChampionshipFilters, {
 } from "@/components/ChampionshipFilters";
 import ChampionshipList from "@/components/ChampionshipList";
 import RadarHero from "@/components/RadarHero";
+import { SponsorPlaceholder, WhatsAppPlaceholder } from "@/components/SidebarPromo";
 import { distanceKm } from "@/lib/geo";
 import { FAVORITES_EVENT, getFavoriteIds } from "@/lib/favorites";
 import type { Championship } from "@/lib/types";
@@ -181,7 +182,13 @@ export default function HomePage() {
   }
 
   return (
-    <div>
+    <div className="lg:grid lg:grid-cols-[220px_1fr] lg:items-start lg:gap-6">
+      <aside className="mb-6 flex flex-col gap-4 lg:sticky lg:top-20 lg:mb-0">
+        <SponsorPlaceholder />
+        <WhatsAppPlaceholder />
+      </aside>
+
+      <div>
       <div className="mb-6 flex flex-wrap items-end justify-between gap-2">
         <div>
           <h1 className="text-3xl font-bold tracking-tight text-neutral-900 dark:text-neutral-50">
@@ -258,6 +265,7 @@ export default function HomePage() {
       ) : (
         <ChampionshipMap championships={items.map((i) => i.championship)} />
       )}
+      </div>
     </div>
   );
 }
